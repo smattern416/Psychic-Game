@@ -1,4 +1,12 @@
 var userGuess = prompt("Guess a letter!");
+var alphabet = ["a", "b", ];
+var guesses = [ ];
+var wins ;
+var losses ;
+
+
+
+
 
 // Computer prompts player
 // User inputs a letter 

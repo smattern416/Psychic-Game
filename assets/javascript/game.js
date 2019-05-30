@@ -1,5 +1,5 @@
 var userGuess = prompt("Guess a letter!");
-var alphabet = ["a", "b", ];
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var guesses = [ ];
 var wins ;
 var losses ;

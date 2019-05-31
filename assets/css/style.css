@@ -1,3 +1,11 @@
 body {
-    background-color: blueviolet;
+    background-color: black;
+    color: white;
+}
+header {
+    text-align: center;
+    padding: 50px;
+    font-family: fantasy;
+    font-size: xx-large;
+    border-style: double;
 }

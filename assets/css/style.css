@@ -8,10 +8,14 @@ header {
     padding: 50px;
     font-family: fantasy;
     font-size: xx-large;
-    border-style: double;
+}
+h1 {
+    text-align: center;
+    font-family: fantasy;
+    font-size: x-large;
 }
 .container {
     text-align: center;
     font-family: fantasy;
-    
+
 }

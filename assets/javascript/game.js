@@ -1,99 +1,49 @@
-
-var won = 0;
-var lost = 0;
+var alphabet = "qwertyuiopasdfghjklzxcvbnm"
+var wins = 0;
+var losses = 0;
 var attempts = 10;
-var usedArray = [];
-var ranLetter = ranLetter;
-var letters = "qwertyuiopasdfghjklzxcvbnm"
-
-ranLetter = letters[Math.floor(Math.random() * letters.length)];
-console.log(ranLetter);
+var array = [];
+var randomGuess = randomGuess;
 
 
-function jsGuess() {
-      ranLetter = letters[Math.floor(Math.random() * letters.length)];
-      console.log(ranLetter);
+randomGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+console.log(randomGuess);
+
+function compGuess() {
+      randomGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+      console.log(randomGuess);
 }
 
 document.onkeyup = function (event) {
       var playerGuess = event.key;
 
-       if (playerGuess === ranLetter) {
-            won++;
+       if (playerGuess === randomGuess) {
+            wins++;
             attempts = 10;
-            usedArray = [];
+            array = [];
       }
- jsGuess();
-      if (playerGuess !== ranLetter) {
+ compGuess();
+      if (playerGuess !== randomGuess) {
             attempts--;
       }
-
-      
       if (attempts == 0) {
-            lost++;
-            usedArray = []
+            losses++;
+            array = []
             attempts = 10;
       }
+     if (array.indexOf(playerGuess) >= 0) {
 
-      //HANDELING INCORRECT GUESSES - OUTPUT
-      //this 'if' prevents a letter selected a 2nd time from being written to the usedArray again, although it still counts as a guess
-      if (usedArray.indexOf(playerGuess) >= 0) {
-
-      } else {
-            //this pushes the players incorrect guess to the usedArray and writes it to the HTML
-            usedArray.push(playerGuess);
-            document.getElementById('playerGuess').innerHTML = usedArray;
-            console.log(usedArray);
-
+      } 
+      else {
+            array.push(playerGuess);
+            document.getElementById('playerGuess').innerHTML = array;
+            console.log(array);
       }
-      //OUTPUT TO HTML
-      //these statements write the values/scores generated to the HTML
-      document.getElementById('won').innerHTML = won;
-      document.getElementById('lost').innerHTML = lost;
+
+      document.getElementById('wins').innerHTML = wins;
+      document.getElementById('losses').innerHTML = losses;
       document.getElementById('attempts').innerHTML = attempts;
-
 }
-
-
-
-
-
-// document.onkeyup = function(event) {
-//   var userChoice = event.key;
-//   var regexp = /[a-z]/gi;
-//     if (!regexp.test(userChoice)) {
-//     }
-//     else {
-//       console.log(userChoice);
-//     }
-//     if (guessesRemaining <= 0) {
-//       losses++;
-//       document.getElementById("losses").innerHTML = losses++;
-//       guessesRemaining = 10;
-//       guessedLetters = [];
-//       document.getElementById("guessedLetters").innerHTML = guessedLetters;
-//       document.getElementById("guessesRemaining").innerHTML = 10;
-//       randomIndex = Math.floor(Math.random() * alphabet.length);
-//       compChoice = alphabet[randomIndex];
-//     }
-//     // compares the randomly selected computer choice and user choice
-//     if (compChoice === userChoice) {
-//       document.getElementById("wins").innerHTML = wins++;
-//       guessedLetters = [];
-//       document.getElementById("guessedLetters").innerHTML = guessedLetters;
-//       randomIndex = Math.floor(Math.random() * alphabet.length);
-//       compChoice = alphabet[randomIndex];
-//       guessesRemaining = 10;
-//       document.getElementById("guessesRemaining").innerHTML = 10;
-//     } 
-//     else {
-//       document.getElementById("guessesRemaining").innerHTML = guessesRemaining--;
-//       guessedLetters.push(userChoice);
-//       document.getElementById("guessedLetters").innerHTML = guessedLetters;
-//     }
-// }
-
-
 
 // Computer prompts player
 // User inputs a letter 
@@ -103,5 +53,5 @@ document.onkeyup = function (event) {
 // Update remaining guesses
 // Update how many guesses user has made so far 
 // Loop that whole thing
-// After however many guesses, game is over 
+// After however many guesses, game restarts 
 

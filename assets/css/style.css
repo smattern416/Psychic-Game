@@ -1,6 +1,7 @@
 body {
     background-color: black;
     color: white;
+    line-height: 1.8;
 }
 header {
     text-align: center;
@@ -8,4 +9,9 @@ header {
     font-family: fantasy;
     font-size: xx-large;
     border-style: double;
+}
+.container {
+    text-align: center;
+    font-family: fantasy;
+    
 }

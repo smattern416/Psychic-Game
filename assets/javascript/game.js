@@ -1,13 +1,4 @@
 
-// var wins = 1;
-// var losses = 0;
-// var alphabet =
-//     ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// var compChoice = alphabet[randomIndex];
-// var guessesRemaining = 10;
-// var guessedLetters = [];
-// var randomIndex = Math.floor(Math.random() * alphabet.length);
-
 var won = 0;
 var lost = 0;
 var attempts = 10;
@@ -15,41 +6,29 @@ var usedArray = [];
 var ranLetter = ranLetter;
 var letters = "qwertyuiopasdfghjklzxcvbnm"
 
-//GENERATING THE COMPUTERS SECRET LETTER
-//Generates random number (decimal from 0 to 1) which is multiplied by 26 and the rounded down to the nearest whole number by the Math.floor method. 
 ranLetter = letters[Math.floor(Math.random() * letters.length)];
 console.log(ranLetter);
 
-//Uses random whole number generated above to select a random letter from the array [letters] and assigns it to the var ranLetter
+
 function jsGuess() {
       ranLetter = letters[Math.floor(Math.random() * letters.length)];
       console.log(ranLetter);
-
 }
 
-//CAPTURING THE PLAYERS INPUT
-//.onkeyup captures the players input as playerGuess
 document.onkeyup = function (event) {
       var playerGuess = event.key;
 
-      // HANDELING CORRECT GUESSES
-      //test if players guess equals ranLetter, if true it increments wins by 1, and clears used letters array. Supposed to reset guess # to 10 but starts at 9 instead, 
-      if (playerGuess === ranLetter) {
+       if (playerGuess === ranLetter) {
             won++;
             attempts = 10;
             usedArray = [];
-
       }
-
-      //HANDELING INCORRECT GUESSES
-      //tests if players guess Does Not Equal ranLetter and decriments attempts by 1
-      jsGuess();
+ jsGuess();
       if (playerGuess !== ranLetter) {
             attempts--;
-
       }
 
-      //when remaining attempts equals zero, lost is incrimented by 1; attempts is reset to 10, and used letters array is cleared
+      
       if (attempts == 0) {
             lost++;
             usedArray = []
